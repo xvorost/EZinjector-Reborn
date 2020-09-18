@@ -1,5 +1,6 @@
 # EZinjector-Reborn
-Injector for CS:GO
+Injector for CS:GO<br>
+Since the release of the trusted mode update, many injectors have stopped working, but EZinjector Reborn has a workaround for this system.
 - EZcheats site: [EN](https://ezcheats.com/) / [RU](https://ezcheats.ru/)
 
 ### How to compile
