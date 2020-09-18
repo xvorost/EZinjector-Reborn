@@ -1,6 +1,6 @@
 # EZinjector-Reborn
 Injector for CS:GO
-- EZcheats site: [EN](https://ezcheats.ru/) / [RU](https://ezcheats.com/)
+- EZcheats site: [EN](https://ezcheats.com/) / [RU](https://ezcheats.ru/)
 
 ### How to compile
 - Choose a solution configuration: **Release**
