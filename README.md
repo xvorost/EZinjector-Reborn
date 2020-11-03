@@ -10,3 +10,6 @@ Since the release of the trusted mode update, many injectors have stopped workin
 "https://cdn.discordapp.com/attachments/711569218306441216/756462570373906442/unknown.png"
  width="180px">
 - Build > Build solution
+
+## Me
+in **Discord**: https://discord.gg/jv8pWMhzDw
