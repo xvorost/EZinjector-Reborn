@@ -12,4 +12,4 @@ Since the release of the trusted mode update, many injectors have stopped workin
 - Build > Build solution
 
 ## Me
-in **Discord**: https://discord.gg/jv8pWMhzDw
+in **Discord**: xvorost#5394
