@@ -1,3 +1,5 @@
+#define _CRT_SECURE_NO_WARNINGS
+
 #include <Windows.h>
 #include <iostream>
 #include "memory.hpp"
@@ -5,13 +7,11 @@
 
 using namespace std;
 
-char namedll[32];
-
 Injector inj;
 
 DWORD pid;
 
-bool DoesFileExist(const char* name) {
+static bool DoesFileExist(const char* name) {
 	if (FILE* file = fopen(name, "r")) {
 		fclose(file);
 		return true;
@@ -21,7 +21,7 @@ bool DoesFileExist(const char* name) {
 	}
 }
 
-void bypass()
+static void bypass()
 {
 	// Restore original NtOpenFile from external process
 	LPVOID ntOpenFile = GetProcAddress(LoadLibraryW(L"ntdll"), "NtOpenFile");
@@ -36,42 +36,27 @@ void bypass()
 	}
 }
 
-int main()
+int main(const int argc, char** argv)
 {
-	SetConsoleTitle("EZinjector Reborn for CS:GO");
-	
-	cout << "EZinjector Reborn\n\nVisit ezcheats.ru / ezcheats.com\n Owner: xvorost\n\n" << endl;
+	SetConsoleTitle("injector by xvorost");
 
-	inj.hwndproc = FindWindowA(0, "Counter-Strike: Global Offensive - Direct3D 9");
+	inj.hwndproc = FindWindowA(0, "Counter-Strike 2");
 
 	GetWindowThreadProcessId(inj.hwndproc, &pid);
 	inj.process = OpenProcess(PROCESS_ALL_ACCESS, FALSE, pid);
 
 	inj.clientDLL = inj.GetModule(pid, "client.dll");
 
-	cout << "Enter dll name:" << endl;
+	bypass();
 
-	scanf_s("%s", namedll);
-	
-
-	if (DoesFileExist(namedll)) {
-		bypass();
-
-			if (inj.inject(pid, namedll)) {
-				cout << "Injection successful! You can close this window.\n\n" << endl;
-					Sleep(5000);
-					exit(0);
-			}
-			else
-			{
-				cout << "Injection failed, try run as Administrator.\n\n" << endl;
-					system("pause");
-			}
-
+	if (inj.inject(pid, argv[1])) {
+		cout << "Injection successful! You can close this window.\n\n" << endl;
+		Sleep(5000);
+		exit(0);
 	}
 	else
 	{
-		cout << "Cannot find : " << namedll <<"\n";
+		cout << "Injection failed, try run as Administrator.\n\n" << endl;
 		system("pause");
 	}
 
