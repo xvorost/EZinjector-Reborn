@@ -1,13 +1,7 @@
 #pragma once
 
-
-
 #include <Windows.h>
 #include <TlHelp32.h>
-
-
-
-
 
 class Injector
 {
@@ -35,7 +29,7 @@ public:
 	{
 		if (pid == 0)
 		{
-			std::cout << "ERROR: Can't found csgo.exe. Run game first and try again\n";
+			std::cout << "ERROR: Can't found cs2.exe. Run game first and try again\n";
 			return FALSE;
 		}
 
